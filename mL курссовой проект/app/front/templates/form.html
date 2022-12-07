@@ -1,0 +1,25 @@
+
+<!-- saved from url=(0139)file:///C:/mL%20%D0%BA%D1%83%D1%80%D1%81%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/app/front/templates/form.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>{% extends "index.html" %}
+{% block title %}Enter the TripAdvisor review{% endblock %}
+{% block content %}
+<h1 class="text-center">Enter the TripAdvisor review</h1>
+<br>
+<div class="row d-flex justify-content-center">
+<div class="col-md-6">
+    <form method="POST" action="file:///C:/mL%20%D0%BA%D1%83%D1%80%D1%81%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/app/front/templates/%7B%7B%20url_for(&#39;predict_form&#39;)%20%7D%7D">
+        <div class="form-group row">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+                {{ field.label(class="col-form-label col-sm-4") }}
+                {{ field(class="form-control col-sm-6") }}
+            {% endfor %}
+        </div>
+         <div class="text-center">
+        <button type="submit" class="btn btn-info">Predict</button>
+         </div>
+    </form>
+</div>
+</div>
+{% endblock %}
+</body></html>

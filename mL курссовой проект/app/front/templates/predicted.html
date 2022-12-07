@@ -1,0 +1,41 @@
+
+<!-- saved from url=(0144)file:///C:/mL%20%D0%BA%D1%83%D1%80%D1%81%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/app/front/templates/predicted.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends "index.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+    {% if not response.error %}
+    <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Results</h2>
+            </div>
+            <div class="card-body">
+
+            <p class="card-text">Probability of positive review: <b>{{ response }}</b></p>
+
+               <div class="text-center">
+                    <a href="file:///C:/mL%20%D0%BA%D1%83%D1%80%D1%81%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/app/front/templates/%7B%7B%20url_for(&#39;predict_form&#39;)%20%7D%7D" class="btn btn-primary">Back</a>
+               </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="card">
+        <div class="card-header text-center">
+            <b>Error</b>
+        </div>
+        <div class="card-body">
+            {% if response.error == 'ConnectionError' %}
+                <p class="card-text text-center">Нет связи с ML сервисом</p>
+            {% else %}
+                <p class="card-text text-center">Ошибка ML сервиса</p>
+        {% endif %}
+        <div class="text-center">
+                <a href="file:///C:/mL%20%D0%BA%D1%83%D1%80%D1%81%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/app/front/templates/%7B%7B%20url_for(&#39;predict_form&#39;)%20%7D%7D" class="btn btn-primary">Назад</a>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}</body></html>
